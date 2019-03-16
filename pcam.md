@@ -29,8 +29,15 @@
 
 ![alt text][logo]
 
-## Aglomeración
-* Respecto a datos, el dataset completo de articulos se divide en tantos bloques como workers estén disponibles. Cada worker se encarga de procesar su bloque artículo a artículo, dividiendo este proceso tantos threads como procesadores disponibles tenga el worker.
+## Aglomeración 
+
+* Los artículos se procesaran por batches del mismo tamaño. Para cada artículo, las tareas de separar y contar palabras se realizan juntas.
+
+* En el procesamiento de queries, extraer los K artículos con más ocurrencias de una palabra, y ordenarlos, también se aglomeran.
+
+## Mapeo
+
+* Respecto a datos, el dataset completo de articulos se divide en tantos batches como workers estén disponibles. Cada worker se encarga de procesar su batch artículo a artículo, dividiendo este proceso tantos threads como procesadores disponibles tenga el worker.
 
 * Teniendo en cuenta lo anterior, tenemos que las tareas para crear la tabla global se agrupan por artículo, es decir: todas las tareas que involucran un un artículo son procesadas por el mismo worker y thread. estas tareas son:
 
@@ -39,7 +46,4 @@
     * Juntar contadores en una tabla parcial.
     * Actualizar la tabla global con la información de la tabla parcial.
 
-* Una vez se genera la tabla global, resta procesar las queries. Cada worker procesa una query en su bloque de artículos, enviando los K con más ocurencias al master. El master, además de procesar su bloque, _reduce_ las respuestas de todos los workers y responde la query.
-
-## Mapeo
-
+* Una vez se genera la tabla global, resta procesar las queries. Cada worker procesa una query en su batch de artículos, enviando los K con más ocurencias al master. El master, además de procesar su batch, _reduce_ las respuestas de todos los workers y responde la query.
