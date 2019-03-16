@@ -10,8 +10,8 @@ def remove_stopwords(st):
 
 for i in range(3):
     print('Reading file', i+1)
-    df = pd.read_csv('data/articles{}.csv'.format(i+1))
+    df = pd.read_csv('../data/articles{}.csv'.format(i+1))
     print('Processing file', i+1)
     df = df[['id', 'title', 'content']]
     df['content'] = df['content'].map(remove_stopwords)
-    df.to_csv('data/articles{}_semicolon.csv'.format(i+1), header=False, encoding='utf-8', index=False, sep=';')
+    df.to_csv('../data/articles{}_semicolon.csv'.format(i+1), header=False, encoding='utf-8', index=False, sep=';')
