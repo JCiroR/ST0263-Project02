@@ -10,7 +10,7 @@ def remove_stopwords(st):
 
 for i in range(3):
     print('Reading file', i+1)
-    df = pd.read_csv('../data/articles{}.csv'.format(i+1))
+    df = pd.read_csv('/opt/datasets/articles{}.csv'.format(i+1))
     print('Processing file', i+1)
     df = df[['id', 'title', 'content']]
     df['content'] = df['content'].map(remove_stopwords)
