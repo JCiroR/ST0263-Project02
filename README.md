@@ -1,4 +1,4 @@
-# ST0263-Project02 - Analítica de texto.
+# ST0263-Project02 - Analítica de texto
 ## Integrantes y sus contribuciones
 
 ### Juan José Suárez Estrada - jsuare32@eafit.edu.co
