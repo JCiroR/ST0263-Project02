@@ -1,3 +1,4 @@
+# Limpia los datos y genera un archivo con todos los artículos
 print('Loading libraries')
 from sklearn.feature_extraction import text
 import pandas as pd
@@ -14,4 +15,7 @@ for i in range(3):
     print('Processing file', i+1)
     df = df[['id', 'title', 'content']]
     df['content'] = df['content'].map(remove_stopwords)
-    df.to_csv('../data/articles{}_semicolon.csv'.format(i+1), header=False, encoding='utf-8', index=False, sep=';')
+    dfs.append(df)
+
+df_all = pd.concat(dfs)
+df_all.to_csv('../data/articles_all_semicolon.csv'.format(i+1), header=False, encoding='utf-8', index=False, sep=';')
