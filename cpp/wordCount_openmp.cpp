@@ -42,7 +42,7 @@ void printKArticlesfor(string word) {
 
 int main() {
     ifstream articlesData;
-    articlesData.open("../data/articles1_semicolon.csv");
+    articlesData.open("../data/articles_all_semicolon.csv");
     cout << "Preprocesando artículos" << endl;
     string line;
     vector<string> lines;

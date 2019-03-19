@@ -26,7 +26,7 @@ void printKArticlesfor(string word) {
     }
     stack<freqArticle> holder;
     pqueue q = inverseIndex[word];
-    
+
     while(!q.empty()) {
         holder.push(q.top());
         q.pop();
@@ -38,20 +38,20 @@ void printKArticlesfor(string word) {
         cout << idTitle[t.second] << endl;
     }
 }
-    
+
 int main() {
     ifstream articlesData;
-    articlesData.open("data/sample.csv");
+    articlesData.open("../data/articles_all_semicolon.csv");
     cout << "Preprocesando artículos" << endl;
     string line;
     while(getline(articlesData, line)) {
         istringstream lineReader(line);
-        
+
         string id, title, content;
         getline(lineReader, id, sep);
         getline(lineReader, title, sep);
         getline(lineReader, content, sep);
-        
+
         idTitle[id] = title;
 
         istringstream words(content);
@@ -59,7 +59,7 @@ int main() {
         string word;
         while(words >> word)
             wordCount[word]++;
-    
+
         for(auto it = wordCount.begin(); it != wordCount.end(); it++) {
             string word = it->first;
             int count = it->second;
