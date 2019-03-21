@@ -16,29 +16,32 @@ Declaro que participé en las siguientes etapas del proyecto, y que todas estas 
 * Programación de algoritmo serial en C++
 * Programación de algoritmo con MPI y OpenMP
 
-## Compilación y ejecución
-Para compilar ir a la carpeta /cpp y correr el comando de compilación correspondiente. Para ejecutar las versiones con OpenMP
-es necesario configurar el número de threads que se usará:
+## Compilación y Preprocesado
+Ir a la carpeta /cpp/ y correr el script ./setup.sh. Esto compilará los programas de C++ y ejecutará programas en Python que preparan los datos para los programas de C++. Esto puede tardarse unos minutos.
+
+    $ cd cpp
+    $ chmod 777 setup.sh
+    $ ./setup.sh
+
+Para ejecutar las versiones con OpenMP es necesario configurar el número de threads que se usará:
 
     $ export OMP_NUM_THREADS=2 // Usar dos threads
 
+## Ejecución
 ### Versión serial
     $ cd cpp
-    $ make serial
     $ ./word_count
-    
+
 ### Versión con OpenMP
     $ cd cpp
-    $ make openmp
     $ ./word_count_openmp
 
 ### Versión con MPI y OpenMP
     $ cd cpp
-    $ make mpi
     $ mpirun -f hosts -np 3 ./word_count_mpi
-    
+
  ## Análisis de resultados
- 
+
 ## Videos sustentación del proyecto
 [Juan José Suárez Estrada](https://www.google.com)
 
