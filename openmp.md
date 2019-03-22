@@ -28,8 +28,3 @@ El algoritmo propuesto inicialmente lee todas las líneas del archivo de entrada
 
 Finalmente, el procesamiento de cada query puede hacerse simplemente accediendo a la lista de K elementos del heap de cada palabra.
 
-### Dificultades
-
-
-## Analisis de resultados
-
