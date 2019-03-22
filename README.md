@@ -56,9 +56,3 @@ Para ejecutar las versiones con OpenMP es necesario configurar el número de thr
 Para OpenMP el número ideal de threads es 2. Y para MPI + OpenMP es 4.
 
 ![Gráfica de Resultados](/images/times_chart.jpg?raw=true "Gráfica de Resultados")
-
-## Videos sustentación del proyecto
-[Juan José Suárez Estrada](https://www.google.com)
-
-[Juan Manuel Ciro Restrepo](https://www.google.com)
-
